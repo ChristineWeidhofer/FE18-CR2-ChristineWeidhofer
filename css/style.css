@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 100px; /* ~height of sticky header - fixes overlapping on anchor links*/
+}
+
+body, html {
+  width: 100%;
+}
+/* -------------- Navigation ------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 2px 20px rgb(202, 202, 202);
+  z-index: 99;
+}
+
+.nav-link {
+  color:rgb(202, 202, 202);
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* -------------- Hero Section ------------------- */
+
+.hero {
+  width: 100%;
+}
+
+.hero img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* -------------- Main Content ------------------- */
+
+#taskContainer {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.card {
+  width: 100%;
+  box-shadow: 0px 0px 10px rgb(202, 202, 202);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.bi-sort-up {
+  display: inline-block; /* to be able to give a padding to the span */
+  padding: 0 0.4rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.bi-sort-up:hover {
+  color: #FEB900;
+  background: #1e2123;
+}
+
+.my-icons {
+  padding-left: 0.5rem;
+}
+
+.prio {
+  display: inline-block; /* to be able to give a padding to the span */
+  padding: 0 0.4rem;
+  border-radius: 0.4rem;
+}
+
+/* -------------- Footer ------------------- */
+
+footer a {
+  text-decoration: none;
+}
+
+/* -------------- Media Queries ------------------- 
+
+Breakpoint	Class infix	Dimensions
+X-Small	None	<576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px
+*/
+
+@media screen and (max-width: 768px) {
+  .hero img {
+    height: 200px;
+  }
+  #taskContainer {
+    width: 90%;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .hero img {
+    padding-top: 50px;
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  .hero img {
+    height: 550px;
+  }
+}
