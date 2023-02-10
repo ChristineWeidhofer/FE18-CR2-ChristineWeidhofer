@@ -3,35 +3,35 @@ const task = `[
     "taskName" : "E-Mails",
     "image" : "images/email.jpg",
     "description" : "Catch up on all new e-mails",
-    "importance" : 3,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "Work Out",
     "image" : "images/work-out.jpg",
     "description" : "Go to the gym and sweat a little",
-    "importance" : 1,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "Code Review",
     "image" : "images/code-review.jpg",
     "description" : "Study and code a lot",
-    "importance" : 4,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "Family",
     "image" : "images/family.jpg",
     "description" : "Visits with friends & family",
-    "importance" : 4,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "TV-Show",
     "image" : "images/tv-show.jpg",
     "description" : "Watch our favorite shows",
-    "importance" : 2,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
@@ -45,21 +45,21 @@ const task = `[
     "taskName" : "Groceries",
     "image" : "images/groceries.jpg",
     "description" : "Shop for necessary groceries",
-    "importance" : 4,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "Coding",
     "image" : "images/coding.jpg",
     "description" : "Work on my coding skills",
-    "importance" : 4,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   },
   {
     "taskName" : "Nature",
     "image" : "images/hike.jpg",
     "description" : "Go for a hike in nature",
-    "importance" : 5,
+    "importance" : 0,
     "deadline" : "27.04.2023"
   }
 ]`

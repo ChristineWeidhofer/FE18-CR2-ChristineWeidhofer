@@ -30,15 +30,46 @@ body, html {
   color: white;
 }
 
-/* -------------- Hero Section ------------------- */
+/* animating the bell to the top right ;-) */
 
-.hero {
-  width: 100%;
+.bell:hover {
+  animation: ring 4s .3s ease-in-out infinite;
+  transform-origin: 50% 4px;
 }
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  1% { transform: rotate(30deg); }
+  3% { transform: rotate(-28deg); }
+  5% { transform: rotate(34deg); }
+  7% { transform: rotate(-32deg); }
+  9% { transform: rotate(30deg); }
+  11% { transform: rotate(-28deg); }
+  13% { transform: rotate(26deg); }
+  15% { transform: rotate(-24deg); }
+  17% { transform: rotate(22deg); }
+  19% { transform: rotate(-20deg); }
+  21% { transform: rotate(18deg); }
+  23% { transform: rotate(-16deg); }
+  25% { transform: rotate(14deg); }
+  27% { transform: rotate(-12deg); }
+  29% { transform: rotate(10deg); }
+  31% { transform: rotate(-8deg); }
+  33% { transform: rotate(6deg); }
+  35% { transform: rotate(-4deg); }
+  37% { transform: rotate(2deg); }
+  39% { transform: rotate(-1deg); }
+  41% { transform: rotate(1deg); }
+
+  43% { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}
+
+/* -------------- Hero Section ------------------- */
 
 .hero img {
   width: 100%;
-  height: 400px;
+  height: 400px; /* height changes for different screen sizes (see @media queries at bottom )*/
   object-fit: cover;
   object-position: top;
 }
@@ -57,7 +88,15 @@ body, html {
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
+}
+
+.icons-end {
+  padding-left: 0.5rem; /* btn icons get a left padding after the text that came before*/
+}
+
+.icons-start {
+  padding-right: 0.5rem; /* icons get a right padding before the text that comes after of if they are right aligned*/
 }
 
 .bi-sort-up {
@@ -73,14 +112,11 @@ body, html {
   background: #1e2123;
 }
 
-.my-icons {
-  padding-left: 0.5rem;
-}
-
 .prio {
-  display: inline-block; /* to be able to give a padding to the span */
+  display: inline-block; /* to be able to give a padding to the span of PRIORITY ITEMS */
   padding: 0 0.4rem;
   border-radius: 0.4rem;
+  background-color: green; /* default green color of the bg */
 }
 
 /* -------------- Footer ------------------- */
@@ -89,20 +125,12 @@ footer a {
   text-decoration: none;
 }
 
-/* -------------- Media Queries ------------------- 
+/* -------------- Media Queries ------------------- */
 
-Breakpoint	Class infix	Dimensions
-X-Small	None	<576px
-Small	sm	≥576px
-Medium	md	≥768px
-Large	lg	≥992px
-Extra large	xl	≥1200px
-Extra extra large	xxl	≥1400px
-*/
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .hero img {
-    height: 200px;
+    padding-top: 50px;
+    height: 250px;
   }
   #taskContainer {
     width: 90%;
@@ -110,10 +138,16 @@ Extra extra large	xxl	≥1400px
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .hero img {
     padding-top: 50px;
     height: 350px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .bell {
+    display: none;
   }
 }
 

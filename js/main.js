@@ -10,29 +10,27 @@ for (let val of tasks) {
   <div>
     <div class="card my-2">
       <img src="${val.image}" class="card-img-top" alt="Picture of ${val.taskName}">
+      
       <div class="card-body">
         <h5 class="card-title">${val.taskName}</h5>
         <p class="card-text">${val.description}</p>
       </div>
+
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Priority-level: <span class="text-light prio">${val.importance}</span></li>
-        <li class="list-group-item deadline">Deadline: <span>${val.deadline}</span></li>
+        <li class="list-group-item"><i class="bi-exclamation-triangle-fill icons-start"></i>Priority-level: <span class="text-light prio">${val.importance}</span></li>
+        <li class="list-group-item"><i class="bi-calendar-check icons-start"></i>Deadline: <span>${val.deadline}</span></li>
       </ul>
       
-      <button type="button" class="btn btn-outline-primary btn-sm m-2 impUp">Importance Up<i class="bi-arrow-up-square-fill my-icons"></i></button>
-      <button type="button" class="btn btn-outline-primary btn-sm m-2 impDown">Importance Down<i class="bi-arrow-down-square-fill my-icons"></i></button>
+      <button type="button" class="btn btn-outline-primary btn-sm m-2 impUp">Importance Up<i class="bi-arrow-up-square-fill icons-end"></i></button>
+      <button type="button" class="btn btn-outline-primary btn-sm m-2 impDown">Importance Down<i class="bi-arrow-down-square-fill icons-end"></i></button>
       
-        <a href="#" class="btn btn-outline-danger btn-sm m-2 del">Delete<i class="bi-trash3-fill my-icons"></i></a>
-        <a href="#" class="btn btn-outline-success btn-sm m-2 done">Done<i class="bi-check-circle-fill my-icons"></i></a>
+      <a href="#" class="btn btn-outline-danger btn-sm m-2 del">Delete<i class="bi-trash3-fill icons-end"></i></a>
+      <a href="#" class="btn btn-outline-success btn-sm m-2 done">Done<i class="bi-check-circle-fill icons-end"></i></a>
       
     </div>
   </div>
   `;
 }
-
-// selecting all my Cards
-
-let cards = document.getElementsByClassName("card");
 
 // selecting all my Done-Buttons
 
@@ -64,10 +62,19 @@ let prios = document.getElementsByClassName("prio");
 
 let impUpBtns = document.getElementsByClassName("impUp");
 
+// loop thru them and increase the number by one and add respective color!
+
 for (let i = 0; i < impUpBtns.length; i++) {
   impUpBtns[i].addEventListener("click", function() {
     tasks[i].importance++;
     prios[i].innerHTML = `${tasks[i].importance}`;
+    if (tasks[i].importance < 2) {
+      prios[i].style.backgroundColor = "green";
+    } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+      prios[i].style.backgroundColor = "orange";
+    } else {
+      prios[i].style.backgroundColor = "red";
+    }  
   })
 }
 
@@ -75,19 +82,19 @@ for (let i = 0; i < impUpBtns.length; i++) {
 
 let impDownBtns = document.getElementsByClassName("impDown");
 
+// loop thru them and decrease the number by one and add respective color!
+
 for (let i = 0; i < impDownBtns.length; i++) {
   impDownBtns[i].addEventListener("click", function() {
     tasks[i].importance--;
     prios[i].innerHTML = `${tasks[i].importance}`;
+    if (tasks[i].importance < 2) {
+      prios[i].style.backgroundColor = "green";
+    } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+      prios[i].style.backgroundColor = "orange";
+    } else {
+      prios[i].style.backgroundColor = "red";
+    }  
   })
 }
 
-for (let i = 0; i < prios.length; i++) {
-  if (tasks[i].importance < 2) {
-    prios[i].style.backgroundColor = "green";
-  } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
-    prios[i].style.backgroundColor = "orange";
-  } else {
-    prios[i].style.backgroundColor = "red";
-  }
-}

@@ -17,16 +17,25 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand text-light fs-4" href="#">MyPlanner</a>
+        <!-- Logo -->
+        <a class="navbar-brand text-light fs-4" href="#"><span><i class="bi-list-check icons-start"></i></span>MyPlanner</a>
+        <!-- Logo -->
         <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse d-lg-flex justify-content-between align-items-center" id="navbarNavAltMarkup">
+          <!-- Menu with Links -->
           <div class="navbar-nav text-light">
             <a class="nav-link" href="index.html">Home</a>
             <a class="nav-link" href="#taskContainer">Tasks</a>
             <a class="nav-link" href="index.html">Settings</a>
           </div>
+          <!-- Menu with Links -->
+          <!-- Bell Icon to the right -->
+          <div class="bell">
+            <i class="bi-bell-fill text-light icons-start"></i>
+          </div>
+          <!-- Bell Icon to the right -->
         </div>
       </div>
     </nav>
@@ -52,6 +61,14 @@
         <div id="taskCards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4"></div>
       </div>
       <!-- Cards -->
+      <!-- Legend -->
+      <div class="legend d-flex flex-column justify-content-evenly align-items-center">
+        <h3 class="m-4">What are those buttons doing?</h3>
+        <button class="btn btn-outline-primary m-1">The blue ones increase or decrease the priority of the tasks!</button>
+        <button class="btn btn-outline-danger m-1">The red ones delete the whole task!!!</button>
+        <button class="btn btn-outline-success m-1">The green ones decrease the opacity, because you did it!!!</button>
+      </div>
+      <!-- Legend -->
     </div>
     <!-- Wrapper -->
   </main>
@@ -134,7 +151,6 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-
 
   <!-- external JSON file -->
   <script src="js/data.js"></script>
