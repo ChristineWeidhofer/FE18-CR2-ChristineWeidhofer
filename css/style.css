@@ -115,6 +115,16 @@ body, html {
   background-color: green; /* default green color of the bg */
 }
 
+/* scroll to top */
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  font-size: 1.3rem;
+}
+
 /* -------------- Footer ------------------- */
 
 footer a {
