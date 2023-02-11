@@ -6,7 +6,7 @@
 }
 
 html {
-  scroll-padding-top: 100px; /* ~height of sticky header - fixes overlapping on anchor links*/
+  scroll-padding-top: 100px; /* ~ height of fixed navbar - fixes overlapping on anchor links*/
 }
 
 body, html {
@@ -20,14 +20,6 @@ body, html {
   right: 0;
   box-shadow: 0px 2px 20px rgb(202, 202, 202);
   z-index: 99;
-}
-
-.nav-link {
-  color:rgb(202, 202, 202);
-}
-
-.nav-link:hover {
-  color: white;
 }
 
 /* animating the bell to the top right ;-) */
@@ -96,8 +88,10 @@ body, html {
 }
 
 .icons-start {
-  padding-right: 0.5rem; /* icons get a right padding before the text that comes after of if they are right aligned*/
+  padding-right: 0.5rem; /* icons get a right padding before the text that comes after OR if they are right-aligned*/
 }
+
+/* icon for sorting the tasks */
 
 .bi-sort-up {
   display: inline-block; /* to be able to give a padding to the span */
@@ -112,8 +106,10 @@ body, html {
   background: #1e2123;
 }
 
+/* span of priority */
+
 .prio {
-  display: inline-block; /* to be able to give a padding to the span of PRIORITY ITEMS */
+  display: inline-block; /* to be able to give a padding to the span*/
   padding: 0 0.4rem;
   border-radius: 0.4rem;
   background-color: green; /* default green color of the bg */

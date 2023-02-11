@@ -1,9 +1,11 @@
 let tasks = JSON.parse(task);
-console.log("I am an array of objects:" + tasks)
+//console.log("I am an array of objects:" + tasks)
 
 let selTasks = document.getElementById("taskCards");
 
 // looping through all my tasks and creating cards for each task, including Titles, Text, Buttons...
+// wrapping it in a function, so I can use it again after sorting
+
 
 for (let val of tasks) {
   selTasks.innerHTML += `
@@ -28,8 +30,7 @@ for (let val of tasks) {
       <a href="#" class="btn btn-outline-success btn-sm m-2 done">Done<i class="bi-check-circle-fill icons-end"></i></a>
       
     </div>
-  </div>
-  `;
+  </div>`;
 }
 
 // selecting all my Done-Buttons
@@ -98,3 +99,46 @@ for (let i = 0; i < impDownBtns.length; i++) {
   })
 }
 
+/* adding an Event Listener to the sort-Button and sort our array of objects in an ascending order
+according to their importance (low to high) */
+
+
+document.getElementById("sortBtn").addEventListener("click", sortTasks);
+
+function sortTasks() {
+  tasks.sort((t1, t2) => (t1.importance > t2.importance) ? 1 : (t1.importance < t2.importance) ? -1 : 0);
+
+  // creating cards again
+  var newCards = "";
+
+  newCards += `<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4">`;
+
+  for (let val of tasks) {
+    newCards += `
+    <div>
+      <div class="card my-2">
+        <img src="${val.image}" class="card-img-top" alt="Picture of ${val.taskName}">
+        
+        <div class="card-body">
+          <h5 class="card-title">${val.taskName}</h5>
+          <p class="card-text">${val.description}</p>
+        </div>
+  
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="bi-exclamation-triangle-fill icons-start"></i>Priority-level: <span class="text-light prio">${val.importance}</span></li>
+          <li class="list-group-item"><i class="bi-calendar-check icons-start"></i>Deadline: <span>${val.deadline}</span></li>
+        </ul>
+        
+        <button type="button" class="btn btn-outline-primary btn-sm m-2 impUp">Importance Up<i class="bi-arrow-up-square-fill icons-end"></i></button>
+        <button type="button" class="btn btn-outline-primary btn-sm m-2 impDown">Importance Down<i class="bi-arrow-down-square-fill icons-end"></i></button>
+        
+        <a href="#" class="btn btn-outline-danger btn-sm m-2 del">Delete<i class="bi-trash3-fill icons-end"></i></a>
+        <a href="#" class="btn btn-outline-success btn-sm m-2 done">Done<i class="bi-check-circle-fill icons-end"></i></a>
+      
+      </div>
+    </div>`;
+  }
+  newCards += `</div>`;
+
+  document.getElementById("taskCardWrapper").innerHTML = newCards;
+}

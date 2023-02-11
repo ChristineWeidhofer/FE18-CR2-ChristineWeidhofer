@@ -46,6 +46,7 @@
     </div>
     <!-- Hero -->
   </header>
+
   <main>
     <!-- Wrapper -->
     <div id="taskContainer">
@@ -53,12 +54,12 @@
         <h2>Weekly Tasks</h2>
         <div class="d-flex align-items-center">
           <h5 class="fst-normal">Sort by priority:</h5>
-          <i class="bi-sort-up fs-1 ms-4"></i>
+          <i id="sortBtn" class="bi-sort-up fs-1 ms-4"></i>
         </div>
       </div>
       <!-- Cards -->
-      <div id="taskWrapper">
-        <div id="taskCards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4"></div>
+      <div id="taskCardWrapper">
+        <div id="taskCards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4"></div>
       </div>
       <!-- Cards -->
       <!-- Legend -->
@@ -72,38 +73,26 @@
     </div>
     <!-- Wrapper -->
   </main>
-      <!-- Footer -->
+
   <footer class="bg-dark text-center text-white">
-    <!-- Grid container -->
     <div class="container p-4">
       <!-- Section: Social media -->
       <section class="mb-4">
-        <!-- Facebook -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://facebook.com" role="button">
           <i class="bi-facebook"></i>
         </a>
-
-        <!-- Twitter -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com" role="button">
           <i class="bi-twitter"></i>
         </a>
-
-        <!-- Google -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://google.com" role="button">
           <i class="bi-google"></i>
         </a>
-
-        <!-- Instagram -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://instagram.com" role="button">
           <i class="bi-instagram"></i>
         </a>
-
-        <!-- Linkedin -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://linkedin.com" role="button">
           <i class="bi-linkedin"></i>
         </a>
-
-        <!-- Github -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://github.com" role="button">
           <i class="bi-github"></i>
         </a>
@@ -111,38 +100,29 @@
       <!-- Section: Social media -->
 
       <!-- Section: Form -->
-      <section class="">
-        <form action="">
-          <!--Grid row-->
+      <section>
+        <form>
           <div class="row d-flex justify-content-center">
-            <!--Grid column-->
             <div class="col-auto">
               <p class="pt-2">Sign up for our newsletter</p>
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
             <div class="col-md-5 col-12">
               <!-- Email input -->
               <div class="form-outline form-white mb-4">
                 <input type="email" id="form5Example21" class="form-control" placeholder="E-Mail"/>
               </div>
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
             <div class="col-auto">
               <!-- Submit button -->
               <button type="submit" class="btn btn-outline-light mb-4">
                 Subscribe
               </button>
             </div>
-            <!--Grid column-->
           </div>
-          <!--Grid row-->
         </form>
       </section>
       <!-- Section: Form -->
+
     <!-- Copyright -->
     <div class="text-center p-3">
       © 2023 Copyright:
@@ -150,7 +130,6 @@
     </div>
     <!-- Copyright -->
   </footer>
-  <!-- Footer -->
 
   <!-- external JSON file -->
   <script src="js/data.js"></script>
