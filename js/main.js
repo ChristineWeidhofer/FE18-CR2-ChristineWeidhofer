@@ -38,22 +38,28 @@ for (let val of tasks) {
 let doneBtns = document.getElementsByClassName("done");
 console.log(doneBtns);
 
+function doneButton() {
 for (let i = 0; i < doneBtns.length; i++) {
   doneBtns[i].addEventListener("click", function() {
     doneBtns[i].parentElement.style.opacity = "0.3";
   })
 }
+}
+doneButton();
 
 // selecting all my Delete-Buttons
 
 let delBtns = document.getElementsByClassName("del");
 console.log(delBtns);
 
+function deleteButton() {
 for (let i = 0; i < delBtns.length; i++) {
   delBtns[i].addEventListener("click", function() {
     delBtns[i].parentElement.style.display = "none";
   })
 }
+}
+deleteButton();
 
 // selecting all my Priority-Numbers
 
@@ -65,6 +71,7 @@ let impUpBtns = document.getElementsByClassName("impUp");
 
 // loop thru them and increase the number by one and add respective color!
 
+function importanceUp() {
 for (let i = 0; i < impUpBtns.length; i++) {
   impUpBtns[i].addEventListener("click", function() {
     tasks[i].importance++;
@@ -78,6 +85,8 @@ for (let i = 0; i < impUpBtns.length; i++) {
     }  
   })
 }
+}
+importanceUp();
 
 // selecting all my Importance-Down-Buttons
 
@@ -85,6 +94,7 @@ let impDownBtns = document.getElementsByClassName("impDown");
 
 // loop thru them and decrease the number by one and add respective color!
 
+function importanceDown() {
 for (let i = 0; i < impDownBtns.length; i++) {
   impDownBtns[i].addEventListener("click", function() {
     tasks[i].importance--;
@@ -98,6 +108,8 @@ for (let i = 0; i < impDownBtns.length; i++) {
     }  
   })
 }
+}
+importanceDown();
 
 /* adding an Event Listener to the sort-Button and sort our array of objects in an ascending order
 according to their importance (low to high) */
@@ -125,7 +137,7 @@ function sortTasks() {
         </div>
   
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="bi-exclamation-triangle-fill icons-start"></i>Priority-level: <span class="text-light prio">${val.importance}</span></li>
+          <li class="list-group-item"><i class="bi-exclamation-triangle-fill icons-start"></i>Priority-level: <span id="prio2" class="text-light prio">${val.importance}</span></li>
           <li class="list-group-item"><i class="bi-calendar-check icons-start"></i>Deadline: <span>${val.deadline}</span></li>
         </ul>
         
@@ -141,4 +153,15 @@ function sortTasks() {
   newCards += `</div>`;
 
   document.getElementById("taskCardWrapper").innerHTML = newCards;
+
+  // make the buttons work again:
+
+  doneButton();
+
+  deleteButton();
+
+  importanceUp();
+
+  importanceDown();
 }
+// function sortTasks end

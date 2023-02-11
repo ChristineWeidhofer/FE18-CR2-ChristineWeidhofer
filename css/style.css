@@ -69,7 +69,7 @@ body, html {
 /* -------------- Main Content ------------------- */
 
 #taskContainer {
-  width: 80%;
+  width: 75%;
   margin: 3rem auto;
 }
 
@@ -129,8 +129,13 @@ footer a {
     height: 250px;
   }
   #taskContainer {
-    width: 90%;
+    width: 80%;
     margin: 2rem auto;
+  }
+  .card img {
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+    object-position: top;
   }
 }
 
