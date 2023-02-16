@@ -9,8 +9,8 @@ let selTasks = document.getElementById("taskCards");
 
 for (let val of tasks) {
   selTasks.innerHTML += `
-  <div>
-    <div class="card my-2">
+  <div class="card-wrap">
+    <div class="card w-100 my-2">
       <img src="${val.image}" class="card-img-top" alt="Picture of ${val.taskName}">
       
       <div class="card-body">
@@ -33,31 +33,33 @@ for (let val of tasks) {
   </div>`;
 }
 
+// selecting my new Cards-div with classes "card-wrap"
+
+let cWClasses = document.getElementsByClassName("card-wrap");
+
 // selecting all my Done-Buttons
 
 let doneBtns = document.getElementsByClassName("done");
-console.log(doneBtns);
 
 function doneButton() {
-for (let i = 0; i < doneBtns.length; i++) {
-  doneBtns[i].addEventListener("click", function() {
-    doneBtns[i].parentElement.style.opacity = "0.3";
-  })
-}
+  for (let i = 0; i < doneBtns.length; i++) {
+    doneBtns[i].addEventListener("click", function() {
+      cWClasses[i].style.opacity = "0.3"; // changed after deadline
+    })
+  }
 }
 doneButton();
 
 // selecting all my Delete-Buttons
 
 let delBtns = document.getElementsByClassName("del");
-console.log(delBtns);
 
 function deleteButton() {
-for (let i = 0; i < delBtns.length; i++) {
-  delBtns[i].addEventListener("click", function() {
-    delBtns[i].parentElement.style.display = "none";
-  })
-}
+  for (let i = 0; i < delBtns.length; i++) {
+    delBtns[i].addEventListener("click", function() {
+      cWClasses[i].style.display = "none"; // changed after deadline
+    })
+  }
 }
 deleteButton();
 
@@ -72,19 +74,19 @@ let impUpBtns = document.getElementsByClassName("impUp");
 // loop thru them and increase the number by one and add respective color!
 
 function importanceUp() {
-for (let i = 0; i < impUpBtns.length; i++) {
-  impUpBtns[i].addEventListener("click", function() {
-    tasks[i].importance++;
-    prios[i].innerHTML = `${tasks[i].importance}`;
-    if (tasks[i].importance < 2) {
-      prios[i].style.backgroundColor = "green";
-    } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
-      prios[i].style.backgroundColor = "orange";
-    } else {
-      prios[i].style.backgroundColor = "red";
-    }  
-  })
-}
+  for (let i = 0; i < impUpBtns.length; i++) {
+    impUpBtns[i].addEventListener("click", function() {
+      tasks[i].importance++;
+      prios[i].innerHTML = `${tasks[i].importance}`;
+      if (tasks[i].importance < 2) {
+        prios[i].style.backgroundColor = "green";
+      } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+        prios[i].style.backgroundColor = "orange";
+      } else {
+        prios[i].style.backgroundColor = "red";
+      }
+    })
+  }
 }
 importanceUp();
 
@@ -95,19 +97,19 @@ let impDownBtns = document.getElementsByClassName("impDown");
 // loop thru them and decrease the number by one and add respective color!
 
 function importanceDown() {
-for (let i = 0; i < impDownBtns.length; i++) {
-  impDownBtns[i].addEventListener("click", function() {
-    tasks[i].importance--;
-    prios[i].innerHTML = `${tasks[i].importance}`;
-    if (tasks[i].importance < 2) {
-      prios[i].style.backgroundColor = "green";
-    } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
-      prios[i].style.backgroundColor = "orange";
-    } else {
-      prios[i].style.backgroundColor = "red";
-    }  
-  })
-}
+  for (let i = 0; i < impDownBtns.length; i++) {
+    impDownBtns[i].addEventListener("click", function() {
+      tasks[i].importance--;
+      prios[i].innerHTML = `${tasks[i].importance}`;
+      if (tasks[i].importance < 2) {
+        prios[i].style.backgroundColor = "green";
+      } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+        prios[i].style.backgroundColor = "orange";
+      } else {
+        prios[i].style.backgroundColor = "red";
+      }
+    })
+  }
 }
 importanceDown();
 
@@ -120,15 +122,14 @@ document.getElementById("sortBtn").addEventListener("click", sortTasks);
 function sortTasks() {
   tasks.sort((t1, t2) => (t1.importance > t2.importance) ? 1 : (t1.importance < t2.importance) ? -1 : 0);
 
-  // creating cards again
-  var newCards = "";
+  // creating cards again // sorting doesn't work if I clicked on "Tasks" in navbar - and went to the anchor???
 
-  newCards += `<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-4">`;
+  selTasks.innerHTML = ""; // created after deadline ( also the new creation in the loop - old div = emptied: new cards put in old div)
 
   for (let val of tasks) {
-    newCards += `
-    <div>
-      <div class="card my-2">
+    selTasks.innerHTML += `
+    <div class="card-wrap">
+      <div class="card w-100 my-2">
         <img src="${val.image}" class="card-img-top" alt="Picture of ${val.taskName}">
         
         <div class="card-body">
@@ -150,9 +151,6 @@ function sortTasks() {
       </div>
     </div>`;
   }
-  newCards += `</div>`;
-
-  document.getElementById("taskCardWrapper").innerHTML = newCards;
 
   // make the buttons work again:
 
@@ -171,7 +169,7 @@ function sortTasks() {
 let mybutton = document.getElementById("btn-back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
+window.onscroll = function() {
   scrollFunction();
 };
 
