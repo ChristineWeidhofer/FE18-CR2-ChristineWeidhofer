@@ -76,14 +76,16 @@ let impUpBtns = document.getElementsByClassName("impUp");
 function importanceUp() {
   for (let i = 0; i < impUpBtns.length; i++) {
     impUpBtns[i].addEventListener("click", function() {
-      tasks[i].importance++;
-      prios[i].innerHTML = `${tasks[i].importance}`;
-      if (tasks[i].importance < 2) {
-        prios[i].style.backgroundColor = "green";
-      } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
-        prios[i].style.backgroundColor = "orange";
-      } else {
-        prios[i].style.backgroundColor = "red";
+      if (tasks[i].importance < 5) {
+        tasks[i].importance++;
+        prios[i].innerHTML = `${tasks[i].importance}`;
+        if (tasks[i].importance < 2) {
+          prios[i].style.backgroundColor = "green";
+        } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+          prios[i].style.backgroundColor = "orange";
+        } else {
+          prios[i].style.backgroundColor = "red";
+        }
       }
     })
   }
@@ -99,14 +101,16 @@ let impDownBtns = document.getElementsByClassName("impDown");
 function importanceDown() {
   for (let i = 0; i < impDownBtns.length; i++) {
     impDownBtns[i].addEventListener("click", function() {
-      tasks[i].importance--;
-      prios[i].innerHTML = `${tasks[i].importance}`;
-      if (tasks[i].importance < 2) {
-        prios[i].style.backgroundColor = "green";
-      } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
-        prios[i].style.backgroundColor = "orange";
-      } else {
-        prios[i].style.backgroundColor = "red";
+      if (tasks[i].importance > 0) {
+        tasks[i].importance--;
+        prios[i].innerHTML = `${tasks[i].importance}`;
+        if (tasks[i].importance < 2) {
+          prios[i].style.backgroundColor = "green";
+        } else if (tasks[i].importance > 1 && tasks[i].importance < 4) {
+          prios[i].style.backgroundColor = "orange";
+        } else {
+          prios[i].style.backgroundColor = "red";
+        }
       }
     })
   }
